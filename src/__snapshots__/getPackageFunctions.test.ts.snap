@@ -559,3 +559,59 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
   },
 ]
 `;
+
+exports[`getPackageFunctions properly extracts program schema from "testcase15.ts.txt" 1`] = `
+[
+  {
+    "name": "postRequest",
+    "signature": {
+      "description": "Implements sending an HTTP post request.",
+      "parameters": [
+        {
+          "name": "params",
+          "schema": {
+            "description": undefined,
+            "properties": {
+              "body": {
+                "description": undefined,
+              },
+              "headers": {
+                "additionalProperties": {
+                  "description": undefined,
+                  "type": "string",
+                },
+                "description": undefined,
+                "type": "object",
+              },
+              "queryParams": {
+                "additionalProperties": {
+                  "description": undefined,
+                  "type": "string",
+                },
+                "description": undefined,
+                "type": "object",
+              },
+              "url": {
+                "description": undefined,
+                "type": "string",
+              },
+            },
+            "required": [
+              "url",
+              "body",
+            ],
+            "type": "object",
+          },
+        },
+      ],
+      "required": [
+        "params",
+      ],
+      "result": {
+        "description": undefined,
+        "schema": {},
+      },
+    },
+  },
+]
+`;

@@ -33,7 +33,30 @@ function generateSchema(
     type: ts.Type,
   ): { schema: JsonSchema; isRequired: boolean } | undefined {
     const description = symbol && getDescription(checker, symbol)
+    const isOptional = !!((symbol?.flags || 0) & ts.SymbolFlags.Optional)
+    if (type.flags & (ts.TypeFlags.Any | ts.TypeFlags.Unknown)) {
+      return {
+        schema: {},
+        isRequired: !isOptional,
+      }
+    }
     if (type.flags & ts.TypeFlags.Object) {
+      const objectType = type as ts.ObjectType
+      if (objectType.objectFlags & ts.ObjectFlags.Mapped) {
+        const value = objectType.getStringIndexType()
+        if (value) {
+          const { schema } = generateSchemaByType(value.symbol, value) || {}
+          return (
+            schema && {
+              schema: {
+                type: 'object',
+                additionalProperties: schema,
+              },
+              isRequired: !isOptional,
+            }
+          )
+        }
+      }
       if (
         type.symbol?.name === 'Promise' &&
         ['then', 'catch'].every((p) => (type.getProperty(p)?.flags || 0) & ts.SymbolFlags.Method)
@@ -45,8 +68,8 @@ function generateSchema(
         }
       }
       return {
-        schema: { ...generateObjectSchema(type), description },
-        isRequired: true,
+        schema: { ...generateObjectSchema(type), description } as JsonSchema,
+        isRequired: !isOptional,
       }
     }
     if (type.isUnion()) {
@@ -60,7 +83,12 @@ function generateSchema(
       ) {
         const [current] = types
         const schema = generateSchemaByType(current.symbol, current)
-        return schema && { ...schema, isRequired }
+        return (
+          schema && {
+            ...schema,
+            isRequired: isRequired && !isOptional,
+          }
+        )
       } else {
         const { flags, values } = resolveUnion(type)
         const primitiveType = resolvePrimitiveType(flags)
@@ -71,7 +99,7 @@ function generateSchema(
               enum: values,
               description,
             },
-            isRequired,
+            isRequired: isRequired && !isOptional,
           }
         )
       }
@@ -83,7 +111,7 @@ function generateSchema(
             type: primitiveType,
             description,
           },
-          isRequired: true,
+          isRequired: !isOptional,
         }
       )
     }

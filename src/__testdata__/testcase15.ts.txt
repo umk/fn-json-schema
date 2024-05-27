@@ -1,0 +1,11 @@
+/**
+ * Implements sending an HTTP post request.
+ */
+export async function postRequest(params: {
+    url: string;
+    body: any;
+    headers?: Record<string, string>;
+    queryParams?: Record<string, string>;
+}): Promise<any> {
+    // Function implementation goes here
+}

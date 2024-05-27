@@ -1,11 +1,14 @@
 type JsonSchema = {
   description?: string
-} & (JsonSchemaObject | JsonSchemaArray | JsonSchemaPrimitive)
+} & (JsonSchemaAny | JsonSchemaObject | JsonSchemaArray | JsonSchemaPrimitive)
+
+export type JsonSchemaAny = Record<string, never>
 
 export type JsonSchemaObject = {
   type: 'object'
-  properties: Record<string, JsonSchema>
+  properties?: Record<string, JsonSchema>
   required?: Array<string>
+  additionalProperties?: JsonSchema
 }
 
 export type JsonSchemaArray = {
