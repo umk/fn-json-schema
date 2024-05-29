@@ -8,6 +8,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase1.ts
       "description": "Adds two numeric values.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "a",
           "schema": {
             "description": "The first numeric value.",
@@ -15,6 +16,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase1.ts
           },
         },
         {
+          "isRequired": true,
           "name": "b",
           "schema": {
             "description": "The second numeric value.",
@@ -22,11 +24,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase1.ts
           },
         },
       ],
-      "required": [
-        "a",
-        "b",
-      ],
-      "result": {
+      "return": {
         "description": "The sum of two numeric values.",
         "schema": {
           "description": undefined,
@@ -47,6 +45,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase2.ts
 Returns a promise that resolves to an array of converted amounts.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "sourceCurrency",
           "schema": {
             "description": "The currency of the input amounts.",
@@ -54,6 +53,7 @@ Returns a promise that resolves to an array of converted amounts.",
           },
         },
         {
+          "isRequired": true,
           "name": "targetCurrency",
           "schema": {
             "description": "The currency to convert the amounts to.",
@@ -61,6 +61,7 @@ Returns a promise that resolves to an array of converted amounts.",
           },
         },
         {
+          "isRequired": true,
           "name": "amounts",
           "schema": {
             "description": "An array of amounts to be converted.",
@@ -72,12 +73,7 @@ Returns a promise that resolves to an array of converted amounts.",
           },
         },
       ],
-      "required": [
-        "sourceCurrency",
-        "targetCurrency",
-        "amounts",
-      ],
-      "result": {
+      "return": {
         "description": "A promise that resolves to an array of converted amounts.",
         "schema": {
           "description": undefined,
@@ -101,6 +97,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase3.ts
       "description": "Fetches a resource with GET using the appropriate protocol (http/https).",
       "parameters": [
         {
+          "isRequired": true,
           "name": "url",
           "schema": {
             "description": "The URL of the resource.",
@@ -108,10 +105,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase3.ts
           },
         },
       ],
-      "required": [
-        "url",
-      ],
-      "result": {
+      "return": {
         "description": "A promise that resolves with the response data.",
         "schema": {
           "description": undefined,
@@ -133,6 +127,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase5.ts
       "description": "Predicate function that checks if a number is even.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "num",
           "schema": {
             "description": "- The number to be checked.",
@@ -140,10 +135,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase5.ts
           },
         },
       ],
-      "required": [
-        "num",
-      ],
-      "result": {
+      "return": {
         "description": "- True if the number is even, false otherwise.",
         "schema": {
           "description": undefined,
@@ -163,6 +155,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase6.ts
       "description": "Predicate function to check if a given object satisfies certain conditions.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "entity",
           "schema": {
             "description": "- The object of type \`MyCompositeType\` to be validated.",
@@ -189,10 +182,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase6.ts
           },
         },
       ],
-      "required": [
-        "entity",
-      ],
-      "result": {
+      "return": {
         "description": "A boolean indicating whether the entity satisfies the conditions.",
         "schema": {
           "description": undefined,
@@ -212,6 +202,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase7.ts
       "description": "Performs a mathematical operation based on the specified action.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "action",
           "schema": {
             "description": "- The action to perform ('add', 'subtract', or 'multiply').",
@@ -224,6 +215,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase7.ts
           },
         },
         {
+          "isRequired": true,
           "name": "operand1",
           "schema": {
             "description": "- The first operand for the operation.",
@@ -231,6 +223,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase7.ts
           },
         },
         {
+          "isRequired": true,
           "name": "operand2",
           "schema": {
             "description": "- The second operand for the operation.",
@@ -238,12 +231,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase7.ts
           },
         },
       ],
-      "required": [
-        "action",
-        "operand1",
-        "operand2",
-      ],
-      "result": {
+      "return": {
         "description": "The result of the mathematical operation.",
         "schema": {
           "description": undefined,
@@ -263,6 +251,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase8.ts
       "description": "Performs a mathematical operation based on the specified action.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "action",
           "schema": {
             "description": "- The action to perform ('add', 'subtract', or 'multiply').",
@@ -275,6 +264,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase8.ts
           },
         },
         {
+          "isRequired": true,
           "name": "operand1",
           "schema": {
             "description": "- The first operand for the operation.",
@@ -282,6 +272,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase8.ts
           },
         },
         {
+          "isRequired": true,
           "name": "operand2",
           "schema": {
             "description": "- The second operand for the operation.",
@@ -289,12 +280,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase8.ts
           },
         },
       ],
-      "required": [
-        "action",
-        "operand1",
-        "operand2",
-      ],
-      "result": {
+      "return": {
         "description": "The result of the mathematical operation.",
         "schema": {
           "description": undefined,
@@ -314,6 +300,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase9.ts
       "description": "Accepts a union of boolean and undefined and returns a union of boolean and undefined.",
       "parameters": [
         {
+          "isRequired": false,
           "name": "input",
           "schema": {
             "description": undefined,
@@ -321,8 +308,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase9.ts
           },
         },
       ],
-      "required": [],
-      "result": {
+      "return": {
         "description": "The input value echoed back if it's a boolean, or undefined if the input is undefined.",
         "schema": {
           "description": undefined,
@@ -342,6 +328,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase10.t
       "description": "Accepts a union of string and undefined and returns a union of string and undefined.",
       "parameters": [
         {
+          "isRequired": false,
           "name": "input",
           "schema": {
             "description": undefined,
@@ -349,8 +336,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase10.t
           },
         },
       ],
-      "required": [],
-      "result": {
+      "return": {
         "description": "The input value echoed back if it's a string, or undefined if the input is undefined.",
         "schema": {
           "description": undefined,
@@ -370,6 +356,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase11.t
       "description": "A function that processes an array of strings asynchronously.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "inputArray",
           "schema": {
             "description": "The array of strings to process.",
@@ -381,10 +368,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase11.t
           },
         },
       ],
-      "required": [
-        "inputArray",
-      ],
-      "result": {
+      "return": {
         "description": "A promise that resolves with the processed array of strings.",
         "schema": {
           "description": undefined,
@@ -408,6 +392,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase12.t
       "description": "Processes a user profile, performs validation, and returns a summary.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "userProfile",
           "schema": {
             "description": "The user profile to be processed.",
@@ -453,10 +438,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase12.t
           },
         },
       ],
-      "required": [
-        "userProfile",
-      ],
-      "result": {
+      "return": {
         "description": "A promise that resolves to a summary of the user profile.",
         "schema": {
           "description": undefined,
@@ -476,6 +458,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase13.t
       "description": "Returns an asynchronous generator that yields incremented values with a delay.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "start",
           "schema": {
             "description": "- The starting value of the counter.",
@@ -483,6 +466,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase13.t
           },
         },
         {
+          "isRequired": true,
           "name": "end",
           "schema": {
             "description": "- The end value (exclusive) of the counter.",
@@ -490,6 +474,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase13.t
           },
         },
         {
+          "isRequired": true,
           "name": "delay",
           "schema": {
             "description": "- The delay in milliseconds between each yielded value.",
@@ -497,12 +482,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase13.t
           },
         },
       ],
-      "required": [
-        "start",
-        "end",
-        "delay",
-      ],
-      "result": {
+      "return": {
         "description": "An asynchronous generator that produces a sequence of incremented values.",
         "schema": {
           "description": undefined,
@@ -526,6 +506,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
       "description": "Returns a generator that yields incremented values.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "start",
           "schema": {
             "description": "- The starting value of the counter.",
@@ -533,6 +514,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
           },
         },
         {
+          "isRequired": true,
           "name": "end",
           "schema": {
             "description": "- The end value (exclusive) of the counter.",
@@ -540,11 +522,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
           },
         },
       ],
-      "required": [
-        "start",
-        "end",
-      ],
-      "result": {
+      "return": {
         "description": "A generator that produces a sequence of incremented values.",
         "schema": {
           "description": undefined,
@@ -568,6 +546,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase15.t
       "description": "Implements sending an HTTP post request.",
       "parameters": [
         {
+          "isRequired": true,
           "name": "params",
           "schema": {
             "description": undefined,
@@ -604,10 +583,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase15.t
           },
         },
       ],
-      "required": [
-        "params",
-      ],
-      "result": {
+      "return": {
         "description": undefined,
         "schema": {},
       },

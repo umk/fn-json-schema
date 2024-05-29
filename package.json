@@ -1,6 +1,6 @@
 {
   "name": "fn-json-schema",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Describes parameters of exported functions as a JSON schema",
   "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
   "homepage": "https://github.com/umk/fn-json-schema#readme",

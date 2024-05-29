@@ -1,5 +1,11 @@
 import JsonSchema, { JsonSchemaArray, JsonSchemaObject, JsonSchemaPrimitive } from './JsonSchema'
-import PackageFunction, { Signature, SignatureParameter, SignatureResult } from './PackageFunction'
+import PackageFunction, {
+  PackageFunctionError,
+  PackageFunctionSignature,
+  Signature,
+  SignatureParameter,
+  SignatureReturn,
+} from './PackageFunction'
 import PackageInfo, { getPackageInfo } from './PackageInfo'
 import getPackageSchema from './getPackageSchema'
 
@@ -11,8 +17,10 @@ export {
   JsonSchemaObject,
   JsonSchemaPrimitive,
   PackageFunction,
+  PackageFunctionSignature,
+  PackageFunctionError,
   PackageInfo,
   Signature,
   SignatureParameter,
-  SignatureResult,
+  SignatureReturn,
 }

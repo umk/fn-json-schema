@@ -23,7 +23,7 @@ function getSourceFileSchema(
           functions.push(generateFunctionSchema(checker, symbol))
         } catch (error) {
           if (error instanceof NotSupportedError) {
-            console.warn(`Could not create a function for ${symbol.name}: ${error.message}`)
+            functions.push({ name: symbol.name, error: error.message })
           } else {
             throw error
           }
@@ -36,9 +36,8 @@ function getSourceFileSchema(
 
 function generateFunctionSchema(checker: ts.TypeChecker, symbol: ts.Symbol): PackageFunction {
   function getSignatureSchema(signature: ts.Signature): Signature {
-    const required: Array<string> = []
     const returnType = signature.getReturnType()
-    const resultSchema = generateSchema(checker, undefined, returnType)
+    const returnSchema = generateSchema(checker, undefined, returnType)
     return {
       parameters: signature.parameters.map((p) => {
         const parameterSchema = generateSchema(checker, p)
@@ -46,16 +45,14 @@ function generateFunctionSchema(checker: ts.TypeChecker, symbol: ts.Symbol): Pac
           throw new NotSupportedError(`Cannot determine schema for parameter ${p.name}`)
         }
         const { schema, isRequired } = parameterSchema
-        if (isRequired) required.push(p.name)
-        return { name: p.name, schema }
+        return { name: p.name, schema, isRequired }
       }),
-      result: resultSchema && {
-        schema: resultSchema.schema,
+      return: returnSchema && {
+        schema: returnSchema.schema,
         description:
           getDescriptionByTag(signature, 'yields') || getDescriptionByTag(signature, 'returns'),
       },
       description: getDescription(checker, signature),
-      required,
     }
   }
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
