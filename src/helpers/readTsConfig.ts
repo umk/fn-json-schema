@@ -5,7 +5,7 @@ import ts from 'typescript'
 /**
  * Function to read and parse tsconfig.json
  */
-function readTsconfig(tsconfigPath: string): ts.ParsedCommandLine {
+function readTsConfig(tsconfigPath: string): ts.ParsedCommandLine {
   // Parse tsconfig.json using the TypeScript API
   const tsconfig = ts.readConfigFile(tsconfigPath, ts.sys.readFile)
   if (tsconfig.error) {
@@ -29,4 +29,4 @@ function readTsconfig(tsconfigPath: string): ts.ParsedCommandLine {
   return parsedConfig
 }
 
-export default readTsconfig
+export default readTsConfig

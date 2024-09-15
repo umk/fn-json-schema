@@ -1,4 +1,4 @@
-import JsonSchema from './JsonSchema'
+import { JsonSchema } from './schema/index.js'
 
 type PackageFunction = {
   name: string
@@ -15,7 +15,7 @@ export type PackageFunctionError = {
 export type Signature = {
   description?: string
   parameters: Array<SignatureParameter>
-  return: SignatureReturn | undefined
+  response: SignatureReturn | undefined
 }
 
 export type SignatureParameter = {

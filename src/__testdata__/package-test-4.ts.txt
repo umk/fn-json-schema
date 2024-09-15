@@ -9,4 +9,5 @@
  * This function is useful for creating a synchronous sequence of values.
  */
 export function* counterGenerator(start: number, end: number): Generator<number> {
+    throw new Error('not implemented');
 }

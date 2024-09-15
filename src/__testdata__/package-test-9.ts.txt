@@ -1,0 +1,19 @@
+/**
+ * @typedef RecursiveType
+ * @property {number} value The numerical value of the node.
+ * @property {RecursiveType[]} [children] An optional array of child nodes, each of which is of type RecursiveType.
+ */
+type RecursiveType = {
+  value: number;
+  children?: RecursiveType[];
+};
+
+/**
+ * Processes a recursive type structure.
+ *
+ * @param {RecursiveType} node The node to process, which may have children nodes forming a recursive structure.
+ * @returns {void} This function does not return a value.
+ */
+export function processRecursiveType(node: RecursiveType): void {
+  throw new Error('not implemented');
+}

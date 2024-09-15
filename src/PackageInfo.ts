@@ -2,21 +2,13 @@ import fs from 'fs/promises'
 import path from 'path'
 
 type PackageInfo = {
-  /*
-   * The name of the package
-   */
+  /** The name of the package */
   name: string
-  /*
-   * The version of the package
-   */
+  /** The version of the package */
   version: string
-  /*
-   * A short description of the package
-   */
+  /** A short description of the package */
   description: string | undefined
-  /*
-   * Path to the TypeScript definition file for the package
-   */
+  /** Path to the TypeScript definition file for the package */
   types: string | undefined
 }
 
@@ -35,9 +27,9 @@ export async function getPackageInfo(packagePath: string): Promise<PackageInfo> 
   }
   try {
     const buffer = await fs.readFile(p)
-    const { name, version, description, types } = JSON.parse(buffer.toString())
-    if (!name || !version) {
-      throw new Error('The package.json is missing a name or version')
+    const { name, version, description, types, main } = JSON.parse(buffer.toString())
+    if (!name || !version || !main) {
+      throw new Error('The package.json is missing a name, version or entry point')
     }
     return { name, version, description, types }
   } catch (error) {

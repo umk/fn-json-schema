@@ -2,14 +2,14 @@
   "compilerOptions": {
     "rootDir": "src",
 
-    "target": "es2015",
+    "target": "es2018",
     "moduleResolution": "node",
     "module": "es2015",
     "declaration": true,
     "inlineSourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": ["dom", "dom.iterable", "es2015"],
+    "lib": ["dom", "dom.iterable", "es2018"],
     "stripInternal": true,
     "allowJs": true,
 

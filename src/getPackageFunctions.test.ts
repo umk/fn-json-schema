@@ -3,7 +3,7 @@ import path from 'path'
 
 import ts from 'typescript'
 
-import getPackageFunctions from './getPackageFunctions'
+import getPackageFunctions from './getPackageFunctions.js'
 
 const testCases = (function () {
   const p = path.join(__dirname, '__testdata__')

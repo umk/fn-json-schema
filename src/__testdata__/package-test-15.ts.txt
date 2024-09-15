@@ -1,7 +1,11 @@
 /**
  * Represents the possible actions for the process function.
  */
-export type Action = 'add' | 'subtract' | 'multiply';
+export enum Action {
+    Add = 'Add',
+    Subtract = 'Subtract',
+    Multiply = 'Multiply',
+}
 
 /**
  * Performs a mathematical operation based on the specified action.
@@ -14,5 +18,6 @@ export type Action = 'add' | 'subtract' | 'multiply';
  * @remarks
  * This function supports addition, subtraction, and multiplication.
  */
-export function processAction(action: Action, operand1: number, operand2: number): number {
+export function processAction2(action: Action, operand1: number, operand2: number): number {
+    throw new Error('not implemented');
 }

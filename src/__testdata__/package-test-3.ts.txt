@@ -8,4 +8,5 @@
  * @returns A promise that resolves to an array of converted amounts.
  */
 export async function convertCurrencyAsync(sourceCurrency: string, targetCurrency: string, amounts: Array<number>): Promise<Array<number>> {
+    throw new Error('not implemented');
 }

@@ -5,4 +5,5 @@
  * @returns {Promise<string>} A promise that resolves with the response data.
  */
 export function fetchResourceAsync(url: string): Promise<string> {
+    throw new Error('not implemented');
 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getPackageFunctions properly extracts program schema from "testcase1.ts.txt" 1`] = `
+exports[`getPackageFunctions properly extracts program schema from "package-test-1.ts.txt" 1`] = `
 [
   {
     "name": "addNumbers",
@@ -24,7 +24,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase1.ts
           },
         },
       ],
-      "return": {
+      "response": {
         "description": "The sum of two numeric values.",
         "schema": {
           "description": undefined,
@@ -36,7 +36,55 @@ exports[`getPackageFunctions properly extracts program schema from "testcase1.ts
 ]
 `;
 
-exports[`getPackageFunctions properly extracts program schema from "testcase2.ts.txt" 1`] = `
+exports[`getPackageFunctions properly extracts program schema from "package-test-2.ts.txt" 1`] = `
+[
+  {
+    "name": "asyncCounterGenerator",
+    "signature": {
+      "description": "Returns an asynchronous generator that yields incremented values with a delay.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "start",
+          "schema": {
+            "description": "The starting value of the counter.",
+            "type": "number",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "end",
+          "schema": {
+            "description": "The end value (exclusive) of the counter.",
+            "type": "number",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "delay",
+          "schema": {
+            "description": "The delay in milliseconds between each yielded value.",
+            "type": "number",
+          },
+        },
+      ],
+      "response": {
+        "description": "An asynchronous generator that produces a sequence of incremented values.",
+        "schema": {
+          "description": undefined,
+          "items": {
+            "description": undefined,
+            "type": "number",
+          },
+          "type": "array",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-3.ts.txt" 1`] = `
 [
   {
     "name": "convertCurrencyAsync",
@@ -73,7 +121,7 @@ Returns a promise that resolves to an array of converted amounts.",
           },
         },
       ],
-      "return": {
+      "response": {
         "description": "A promise that resolves to an array of converted amounts.",
         "schema": {
           "description": undefined,
@@ -89,416 +137,7 @@ Returns a promise that resolves to an array of converted amounts.",
 ]
 `;
 
-exports[`getPackageFunctions properly extracts program schema from "testcase3.ts.txt" 1`] = `
-[
-  {
-    "name": "fetchResourceAsync",
-    "signature": {
-      "description": "Fetches a resource with GET using the appropriate protocol (http/https).",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "url",
-          "schema": {
-            "description": "The URL of the resource.",
-            "type": "string",
-          },
-        },
-      ],
-      "return": {
-        "description": "A promise that resolves with the response data.",
-        "schema": {
-          "description": undefined,
-          "type": "string",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase4.ts.txt" 1`] = `[]`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase5.ts.txt" 1`] = `
-[
-  {
-    "name": "isEven",
-    "signature": {
-      "description": "Predicate function that checks if a number is even.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "num",
-          "schema": {
-            "description": "- The number to be checked.",
-            "type": "number",
-          },
-        },
-      ],
-      "return": {
-        "description": "- True if the number is even, false otherwise.",
-        "schema": {
-          "description": undefined,
-          "type": "boolean",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase6.ts.txt" 1`] = `
-[
-  {
-    "name": "isValidEntity",
-    "signature": {
-      "description": "Predicate function to check if a given object satisfies certain conditions.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "entity",
-          "schema": {
-            "description": "- The object of type \`MyCompositeType\` to be validated.",
-            "properties": {
-              "age": {
-                "description": "The age of the entity. The age of the entity.",
-                "type": "number",
-              },
-              "isActive": {
-                "description": "Whether the entity is active or not.",
-                "type": "boolean",
-              },
-              "name": {
-                "description": "The name of the entity. The name of the entity.",
-                "type": "string",
-              },
-            },
-            "required": [
-              "name",
-              "age",
-              "isActive",
-            ],
-            "type": "object",
-          },
-        },
-      ],
-      "return": {
-        "description": "A boolean indicating whether the entity satisfies the conditions.",
-        "schema": {
-          "description": undefined,
-          "type": "boolean",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase7.ts.txt" 1`] = `
-[
-  {
-    "name": "processAction",
-    "signature": {
-      "description": "Performs a mathematical operation based on the specified action.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "action",
-          "schema": {
-            "description": "- The action to perform ('add', 'subtract', or 'multiply').",
-            "enum": [
-              "add",
-              "subtract",
-              "multiply",
-            ],
-            "type": "string",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "operand1",
-          "schema": {
-            "description": "- The first operand for the operation.",
-            "type": "number",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "operand2",
-          "schema": {
-            "description": "- The second operand for the operation.",
-            "type": "number",
-          },
-        },
-      ],
-      "return": {
-        "description": "The result of the mathematical operation.",
-        "schema": {
-          "description": undefined,
-          "type": "number",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase8.ts.txt" 1`] = `
-[
-  {
-    "name": "processAction2",
-    "signature": {
-      "description": "Performs a mathematical operation based on the specified action.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "action",
-          "schema": {
-            "description": "- The action to perform ('add', 'subtract', or 'multiply').",
-            "enum": [
-              "Add",
-              "Subtract",
-              "Multiply",
-            ],
-            "type": "string",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "operand1",
-          "schema": {
-            "description": "- The first operand for the operation.",
-            "type": "number",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "operand2",
-          "schema": {
-            "description": "- The second operand for the operation.",
-            "type": "number",
-          },
-        },
-      ],
-      "return": {
-        "description": "The result of the mathematical operation.",
-        "schema": {
-          "description": undefined,
-          "type": "number",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase9.ts.txt" 1`] = `
-[
-  {
-    "name": "processBooleanOrUndefined",
-    "signature": {
-      "description": "Accepts a union of boolean and undefined and returns a union of boolean and undefined.",
-      "parameters": [
-        {
-          "isRequired": false,
-          "name": "input",
-          "schema": {
-            "description": undefined,
-            "type": "boolean",
-          },
-        },
-      ],
-      "return": {
-        "description": "The input value echoed back if it's a boolean, or undefined if the input is undefined.",
-        "schema": {
-          "description": undefined,
-          "type": "boolean",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase10.ts.txt" 1`] = `
-[
-  {
-    "name": "processStringOrUndefined",
-    "signature": {
-      "description": "Accepts a union of string and undefined and returns a union of string and undefined.",
-      "parameters": [
-        {
-          "isRequired": false,
-          "name": "input",
-          "schema": {
-            "description": undefined,
-            "type": "string",
-          },
-        },
-      ],
-      "return": {
-        "description": "The input value echoed back if it's a string, or undefined if the input is undefined.",
-        "schema": {
-          "description": undefined,
-          "type": "string",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase11.ts.txt" 1`] = `
-[
-  {
-    "name": "processStringsAsync",
-    "signature": {
-      "description": "A function that processes an array of strings asynchronously.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "inputArray",
-          "schema": {
-            "description": "The array of strings to process.",
-            "items": {
-              "description": undefined,
-              "type": "string",
-            },
-            "type": "array",
-          },
-        },
-      ],
-      "return": {
-        "description": "A promise that resolves with the processed array of strings.",
-        "schema": {
-          "description": undefined,
-          "items": {
-            "description": undefined,
-            "type": "string",
-          },
-          "type": "array",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase12.ts.txt" 1`] = `
-[
-  {
-    "name": "processUserProfileAsync",
-    "signature": {
-      "description": "Processes a user profile, performs validation, and returns a summary.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "userProfile",
-          "schema": {
-            "description": "The user profile to be processed.",
-            "properties": {
-              "address": {
-                "description": "The address of the user, including street, city, and postal code. The address of the user, including street, city, and postal code.",
-                "properties": {
-                  "city": {
-                    "description": "The city where the user resides. The city where the user resides.",
-                    "type": "string",
-                  },
-                  "postalCode": {
-                    "description": "The postal code of the user's address. The postal code of the user's address.",
-                    "type": "string",
-                  },
-                  "street": {
-                    "description": "The street where the user resides. The street where the user resides.",
-                    "type": "string",
-                  },
-                },
-                "required": [
-                  "street",
-                  "city",
-                  "postalCode",
-                ],
-                "type": "object",
-              },
-              "age": {
-                "description": "The age of the user. The age of the user.",
-                "type": "number",
-              },
-              "name": {
-                "description": "The name of the user. The name of the user.",
-                "type": "string",
-              },
-            },
-            "required": [
-              "name",
-              "age",
-              "address",
-            ],
-            "type": "object",
-          },
-        },
-      ],
-      "return": {
-        "description": "A promise that resolves to a summary of the user profile.",
-        "schema": {
-          "description": undefined,
-          "type": "string",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase13.ts.txt" 1`] = `
-[
-  {
-    "name": "asyncCounterGenerator",
-    "signature": {
-      "description": "Returns an asynchronous generator that yields incremented values with a delay.",
-      "parameters": [
-        {
-          "isRequired": true,
-          "name": "start",
-          "schema": {
-            "description": "- The starting value of the counter.",
-            "type": "number",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "end",
-          "schema": {
-            "description": "- The end value (exclusive) of the counter.",
-            "type": "number",
-          },
-        },
-        {
-          "isRequired": true,
-          "name": "delay",
-          "schema": {
-            "description": "- The delay in milliseconds between each yielded value.",
-            "type": "number",
-          },
-        },
-      ],
-      "return": {
-        "description": "An asynchronous generator that produces a sequence of incremented values.",
-        "schema": {
-          "description": undefined,
-          "items": {
-            "description": undefined,
-            "type": "number",
-          },
-          "type": "array",
-        },
-      },
-    },
-  },
-]
-`;
-
-exports[`getPackageFunctions properly extracts program schema from "testcase14.ts.txt" 1`] = `
+exports[`getPackageFunctions properly extracts program schema from "package-test-4.ts.txt" 1`] = `
 [
   {
     "name": "counterGenerator",
@@ -522,7 +161,7 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
           },
         },
       ],
-      "return": {
+      "response": {
         "description": "A generator that produces a sequence of incremented values.",
         "schema": {
           "description": undefined,
@@ -538,7 +177,314 @@ exports[`getPackageFunctions properly extracts program schema from "testcase14.t
 ]
 `;
 
-exports[`getPackageFunctions properly extracts program schema from "testcase15.ts.txt" 1`] = `
+exports[`getPackageFunctions properly extracts program schema from "package-test-5.ts.txt" 1`] = `
+[
+  {
+    "name": "fetchResourceAsync",
+    "signature": {
+      "description": "Fetches a resource with GET using the appropriate protocol (http/https).",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "url",
+          "schema": {
+            "description": "The URL of the resource.",
+            "type": "string",
+          },
+        },
+      ],
+      "response": {
+        "description": "A promise that resolves with the response data.",
+        "schema": {
+          "description": undefined,
+          "type": "string",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-6.ts.txt" 1`] = `
+[
+  {
+    "name": "isValidEntity",
+    "signature": {
+      "description": "Predicate function to check if a given object satisfies certain conditions.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "entity",
+          "schema": {
+            "description": "- The object of type \`MyCompositeType\` to be validated.",
+            "properties": {
+              "age": {
+                "description": "The age of the entity.",
+                "type": "number",
+              },
+              "isActive": {
+                "description": "Whether the entity is active or not.",
+                "type": "boolean",
+              },
+              "name": {
+                "description": "The name of the entity.",
+                "type": "string",
+              },
+            },
+            "required": [
+              "name",
+              "age",
+              "isActive",
+            ],
+            "type": "object",
+          },
+        },
+      ],
+      "response": {
+        "description": "A boolean indicating whether the entity satisfies the conditions.",
+        "schema": {
+          "description": undefined,
+          "type": "boolean",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-7.ts.txt" 1`] = `[]`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-8.ts.txt" 1`] = `
+[
+  {
+    "name": "isEven",
+    "signature": {
+      "description": "Predicate function that checks if a number is even.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "num",
+          "schema": {
+            "description": "- The number to be checked.",
+            "type": "number",
+          },
+        },
+      ],
+      "response": {
+        "description": "- True if the number is even, false otherwise.",
+        "schema": {
+          "description": undefined,
+          "type": "boolean",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-9.ts.txt" 1`] = `
+[
+  {
+    "name": "processRecursiveType",
+    "signature": {
+      "description": "Processes a recursive type structure.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "node",
+          "schema": {
+            "$defs": {
+              "RecursiveType": {
+                "properties": {
+                  "children": {
+                    "description": undefined,
+                    "items": {
+                      "$ref": "#/$defs/RecursiveType",
+                      "description": "The node to process, which may have children nodes forming a recursive structure.",
+                    },
+                    "type": "array",
+                  },
+                  "value": {
+                    "description": undefined,
+                    "type": "number",
+                  },
+                },
+                "required": [
+                  "value",
+                ],
+                "type": "object",
+              },
+            },
+            "$ref": "#/$defs/RecursiveType",
+            "description": "The node to process, which may have children nodes forming a recursive structure.",
+          },
+        },
+      ],
+      "response": undefined,
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-10.ts.txt" 1`] = `
+[
+  {
+    "name": "processBooleanOrUndefined",
+    "signature": {
+      "description": "Accepts a union of boolean and undefined and returns a union of boolean and undefined.",
+      "parameters": [
+        {
+          "isRequired": false,
+          "name": "input",
+          "schema": {
+            "description": "The input value of type boolean or undefined.",
+            "type": "boolean",
+          },
+        },
+      ],
+      "response": {
+        "description": "The input value echoed back if it's a boolean, or undefined if the input is undefined.",
+        "schema": {
+          "description": undefined,
+          "type": "boolean",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-11.ts.txt" 1`] = `
+[
+  {
+    "name": "processStringOrUndefined",
+    "signature": {
+      "description": "Accepts a union of string and undefined and returns a union of string and undefined.",
+      "parameters": [
+        {
+          "isRequired": false,
+          "name": "input",
+          "schema": {
+            "description": "- The input value of type string or undefined.",
+            "type": "string",
+          },
+        },
+      ],
+      "response": {
+        "description": "The input value echoed back if it's a string, or undefined if the input is undefined.",
+        "schema": {
+          "description": undefined,
+          "type": "string",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-12.ts.txt" 1`] = `
+[
+  {
+    "name": "processStringsAsync",
+    "signature": {
+      "description": "A function that processes an array of strings asynchronously.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "inputArray",
+          "schema": {
+            "description": "The array of strings to process.",
+            "items": {
+              "description": undefined,
+              "type": "string",
+            },
+            "type": "array",
+          },
+        },
+      ],
+      "response": {
+        "description": "A promise that resolves with the processed array of strings.",
+        "schema": {
+          "description": undefined,
+          "items": {
+            "description": undefined,
+            "type": "string",
+          },
+          "type": "array",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-13.ts.txt" 1`] = `
+[
+  {
+    "name": "processUserProfileAsync",
+    "signature": {
+      "description": "Processes a user profile, performs validation, and returns a summary.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "userProfile",
+          "schema": {
+            "description": "The user profile to be processed.",
+            "properties": {
+              "address": {
+                "description": "The address of the user, including street, city, and postal code.",
+                "properties": {
+                  "city": {
+                    "description": "The city where the user resides.",
+                    "type": "string",
+                  },
+                  "postalCode": {
+                    "description": "The postal code of the user's address.",
+                    "type": "string",
+                  },
+                  "street": {
+                    "description": "The street where the user resides.",
+                    "type": "string",
+                  },
+                },
+                "required": [
+                  "street",
+                  "city",
+                  "postalCode",
+                ],
+                "type": "object",
+              },
+              "age": {
+                "description": "The age of the user.",
+                "type": "number",
+              },
+              "name": {
+                "description": "The name of the user.",
+                "type": "string",
+              },
+            },
+            "required": [
+              "name",
+              "age",
+              "address",
+            ],
+            "type": "object",
+          },
+        },
+      ],
+      "response": {
+        "description": "A promise that resolves to a summary of the user profile.",
+        "schema": {
+          "description": undefined,
+          "type": "string",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-14.ts.txt" 1`] = `
 [
   {
     "name": "postRequest",
@@ -583,9 +529,109 @@ exports[`getPackageFunctions properly extracts program schema from "testcase15.t
           },
         },
       ],
-      "return": {
+      "response": {
         "description": undefined,
-        "schema": {},
+        "schema": {
+          "description": undefined,
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-15.ts.txt" 1`] = `
+[
+  {
+    "name": "processAction2",
+    "signature": {
+      "description": "Performs a mathematical operation based on the specified action.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "action",
+          "schema": {
+            "description": "- The action to perform ('add', 'subtract', or 'multiply').",
+            "enum": [
+              "Add",
+              "Subtract",
+              "Multiply",
+            ],
+            "type": "string",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "operand1",
+          "schema": {
+            "description": "- The first operand for the operation.",
+            "type": "number",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "operand2",
+          "schema": {
+            "description": "- The second operand for the operation.",
+            "type": "number",
+          },
+        },
+      ],
+      "response": {
+        "description": "The result of the mathematical operation.",
+        "schema": {
+          "description": undefined,
+          "type": "number",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`getPackageFunctions properly extracts program schema from "package-test-16.ts.txt" 1`] = `
+[
+  {
+    "name": "processAction",
+    "signature": {
+      "description": "Performs a mathematical operation based on the specified action.",
+      "parameters": [
+        {
+          "isRequired": true,
+          "name": "action",
+          "schema": {
+            "description": "- The action to perform ('add', 'subtract', or 'multiply').",
+            "enum": [
+              "add",
+              "subtract",
+              "multiply",
+            ],
+            "type": "string",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "operand1",
+          "schema": {
+            "description": "- The first operand for the operation.",
+            "type": "number",
+          },
+        },
+        {
+          "isRequired": true,
+          "name": "operand2",
+          "schema": {
+            "description": "- The second operand for the operation.",
+            "type": "number",
+          },
+        },
+      ],
+      "response": {
+        "description": "The result of the mathematical operation.",
+        "schema": {
+          "description": undefined,
+          "type": "number",
+        },
       },
     },
   },

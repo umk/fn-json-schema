@@ -7,5 +7,5 @@ export async function postRequest(params: {
     headers?: Record<string, string>;
     queryParams?: Record<string, string>;
 }): Promise<any> {
-    // Function implementation goes here
+    throw new Error('not implemented');
 }

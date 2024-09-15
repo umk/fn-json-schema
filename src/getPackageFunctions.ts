@@ -1,7 +1,7 @@
 import ts from 'typescript'
 
-import PackageFunction from './PackageFunction'
-import getSourceFileSchema from './getSourceFileSchema'
+import PackageFunction from './PackageFunction.js'
+import getSourceFileSchema from './getSourceFileSchema.js'
 
 function getPackageFunctions(
   rootName: string,

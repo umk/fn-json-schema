@@ -1,6 +1,6 @@
 {
   "name": "fn-json-schema",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Describes parameters of exported functions as a JSON schema",
   "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
   "homepage": "https://github.com/umk/fn-json-schema#readme",
@@ -19,7 +19,8 @@
     "test:prettier": "prettier \"src/**/*.{ts,js}\" --list-different",
     "test:lint": "eslint src --ext .ts,.tsx,.js",
     "test:unit": "jest test --silent",
-    "test:unit:debug": "jest test"
+    "test:unit:debug": "jest test",
+    "release": "run-s build test && npm publish"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,8 @@
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   },
   "exports": {
     ".": {
@@ -56,7 +58,9 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "dependencies": {
-    "typescript": "^5.4.5"
-  }
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
 }

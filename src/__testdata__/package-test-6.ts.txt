@@ -5,19 +5,13 @@
  * This data type is used in the predicate function to perform validation.
  */
 export interface MyCompositeType {
-  /**
-   * The name of the entity.
-   */
+  /** The name of the entity. */
   name: string;
 
-  /**
-   * The age of the entity.
-   */
+  /** The age of the entity. */
   age: number;
 
-  /**
-   * Whether the entity is active or not.
-   */
+  /** Whether the entity is active or not. */
   isActive: boolean;
 }
 
@@ -32,4 +26,5 @@ export interface MyCompositeType {
  * Feel free to customize the conditions based on your requirements.
  */
 export function isValidEntity(entity: MyCompositeType): boolean {
+  throw new Error('not implemented');
 }

@@ -2,13 +2,14 @@ import { Stats } from 'fs'
 import fs from 'fs/promises'
 import path from 'path'
 
-import { getPackageInfo } from './PackageInfo'
+import { getPackageInfo } from './PackageInfo.js'
 
 // Define a mocked package.json content for testing purposes
 const mockedPackageJsonContent = JSON.stringify({
   name: 'test-package',
   version: '1.0.0',
   description: 'Test package',
+  main: 'dist/index.js',
   types: 'index.d.ts',
 })
 
@@ -68,7 +69,7 @@ describe('getPackageInfo', () => {
     jest.mocked(fs.readFile).mockResolvedValue(Buffer.from('{}'))
 
     await expect(getPackageInfo(packagePath)).rejects.toThrow(
-      'The package.json is missing a name or version',
+      'The package.json is missing a name, version or entry point',
     )
   })
 

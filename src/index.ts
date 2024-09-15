@@ -1,24 +1,33 @@
-import JsonSchema, { JsonSchemaArray, JsonSchemaObject, JsonSchemaPrimitive } from './JsonSchema'
 import PackageFunction, {
   PackageFunctionError,
   PackageFunctionSignature,
   Signature,
   SignatureParameter,
   SignatureReturn,
-} from './PackageFunction'
-import PackageInfo, { getPackageInfo } from './PackageInfo'
-import getPackageSchema from './getPackageSchema'
+} from './PackageFunction.js'
+import PackageInfo, { getPackageInfo } from './PackageInfo.js'
+import getPackageSchema from './getPackageSchema.js'
+import {
+  JsonSchema,
+  JsonSchemaArray,
+  JsonSchemaDefinitions,
+  JsonSchemaObject,
+  JsonSchemaPrimitive,
+  JsonSchemaRef,
+} from './schema/index.js'
 
 export {
   getPackageInfo,
   getPackageSchema,
   JsonSchema,
   JsonSchemaArray,
+  JsonSchemaDefinitions,
   JsonSchemaObject,
   JsonSchemaPrimitive,
+  JsonSchemaRef,
   PackageFunction,
-  PackageFunctionSignature,
   PackageFunctionError,
+  PackageFunctionSignature,
   PackageInfo,
   Signature,
   SignatureParameter,

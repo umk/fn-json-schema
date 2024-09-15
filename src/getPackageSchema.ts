@@ -2,9 +2,9 @@ import path from 'path'
 
 import ts from 'typescript'
 
-import PackageFunction from './PackageFunction'
-import getPackageFunctions from './getPackageFunctions'
-import readTsconfig from './readTsconfig'
+import PackageFunction from './PackageFunction.js'
+import getPackageFunctions from './getPackageFunctions.js'
+import { readTsConfig } from './helpers/index.js'
 
 async function getPackageSchema(
   packagePath: string,
@@ -16,7 +16,7 @@ async function getPackageSchema(
 ): Promise<Array<PackageFunction>> {
   const { tsconfig = 'tsconfig.json', host } = options || {}
   const tsconfigPath = path.join(packagePath, tsconfig)
-  const tsconfigData = readTsconfig(tsconfigPath)
+  const tsconfigData = readTsConfig(tsconfigPath)
   const rootName = path.resolve(packagePath, packageTypes)
   return getPackageFunctions(
     rootName,

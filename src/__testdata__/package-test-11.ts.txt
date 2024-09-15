@@ -8,4 +8,5 @@
  * This function is designed to handle a union of string and undefined and return the same type.
  */
 export function processStringOrUndefined(input: string | undefined): string | undefined {
+    throw new Error('not implemented');
 }

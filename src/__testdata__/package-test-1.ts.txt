@@ -6,4 +6,5 @@
  * @returns {number} The sum of two numeric values.
  */
 export function addNumbers(a: number, b: number): number {
+    throw new Error('not implemented');
 }
