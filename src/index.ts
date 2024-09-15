@@ -9,6 +9,7 @@ import PackageInfo, { getPackageInfo } from './PackageInfo.js'
 import getPackageSchema from './getPackageSchema.js'
 import {
   JsonSchema,
+  JsonSchemaAny,
   JsonSchemaArray,
   JsonSchemaDefinitions,
   JsonSchemaObject,
@@ -20,6 +21,7 @@ export {
   getPackageInfo,
   getPackageSchema,
   JsonSchema,
+  JsonSchemaAny,
   JsonSchemaArray,
   JsonSchemaDefinitions,
   JsonSchemaObject,

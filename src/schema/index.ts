@@ -1,5 +1,6 @@
 import GenerateSchemaResult from './GenerateSchemaResult.js'
 import JsonSchema, {
+  JsonSchemaAny,
   JsonSchemaArray,
   JsonSchemaConcrete,
   JsonSchemaDefinitions,
@@ -14,6 +15,7 @@ export {
   generateRootSchema,
   GenerateSchemaResult,
   JsonSchema,
+  JsonSchemaAny,
   JsonSchemaArray,
   JsonSchemaConcrete,
   JsonSchemaDefinitions,
